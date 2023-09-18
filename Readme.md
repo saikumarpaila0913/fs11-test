@@ -1,57 +1,30 @@
-# Restaurant Management System
+# URL Hit Counter - Spring Boot Application
 
-This is a simple Spring Boot application for managing restaurant information.
+This is a simple Spring Boot application for counting URL hits and providing hit counts for specific usernames.
 
 ## Technologies Used
 
 - **Language:** Java
 - **Framework:** Spring Boot
-- **Spring Modules:** Spring MVC
+- **Spring Modules:** Spring Web
 - **Lombok:** Used for generating getters and setters.
-
-## Description
-
-This application provides RESTful endpoints for performing CRUD operations on restaurant data. It uses Spring Boot for building the API and Lombok for generating getters and setters.
-
-## API Endpoints
-
-- `GET /restaurants/{Id}`: Get a restaurant by ID.
-- `GET /restaurants/all`: Get a list of all restaurants.
-- `POST /restaurants`: Add a new restaurant.
-- `PUT /restaurants/{Id}`: Update restaurant information.
-- `DELETE /restaurants/{Id}`: Delete a restaurant.
 
 ## Data Flow
 
 ### Controller
 
-- `getrestById(Integer Id)`: Get a restaurant by ID.
-- `getAll()`: Get a list of all restaurants.
-- `Addrest(Restaurant Newrest)`: Add a new restaurant.
-- `Updaterest(Integer Id, Restaurant restaurant)`: Update restaurant information.
-- `remove(Integer Id)`: Delete a restaurant.
+- `GET /api/v1/visitor-count-app/count`: Get the total hit count for all visitors.
+- `GET /api/v1/visitor-count-app/username/{username}/count`: Get the hit count for a specific username.
 
 ### Service
 
-- `getrestaurantById(Integer Id)`: Get a restaurant by ID.
-- `getAll()`: Get a list of all restaurants.
-- `AddRest(Restaurant newrest)`: Add a new restaurant.
-- `Update(Integer Id, Restaurant restaurant)`: Update restaurant information.
-- `Removerest(Integer Id)`: Delete a restaurant.
+- `getHitCount()`: Get the total hit count.
+- `getUserHitCount(username)`: Get the hit count for a specific username.
 
-### RestaurantRepo
+### Data Structures
 
-- `getRestaurantmap()`: Get the restaurant data map.
-
-### DataSource
-
-- `restaurantMap()`: Create and configure a map for storing restaurant data.
-
-## Data Structures
-
-- `Map<Integer, Restaurant>`: Used to store restaurant data with restaurant IDs as keys.
-
+- `Map<String, Integer>`: Used to store hit counts for different usernames.
 
 ## Project Summary
 
-This project is a simple demonstration of a Spring Boot-based RESTful API for restaurant management. It allows you to perform basic CRUD operations on restaurant data, including adding, updating, deleting, and retrieving restaurants by ID or listing all restaurants. The project uses Java, Spring Boot, and Spring MVC for building the API and Lombok for generating getters and setters.
+This project demonstrates a Spring Boot-based URL hit counter application. It provides two endpoints: one to retrieve the total hit count and another to retrieve hit counts for specific usernames. The application uses Java and Spring Boot to handle incoming requests and Lombok for code simplification. Hit counts are stored in a map data structure, and the application offers a straightforward way to retrieve and display hit counts.
